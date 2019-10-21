@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:provider/provider.dart';
 import 'package:whisky_flutter_app/data/local_whisky_provider.dart';
 import 'package:whisky_flutter_app/data/whisky.dart';
 
@@ -8,7 +7,7 @@ class AppState with ChangeNotifier {
 
   List<Whisky> get allWhiskies => List<Whisky>.from(_whiskies);
 
-  Whisky getWhisky(int id) => _whiskies.singleWhere((w) => w.id == id);
+  Whisky getWhisky(int id) => _whiskies[id];
 
   List<Whisky> get favoriteWhiskies =>
       _whiskies.where((w) => w.isFavorite).toList();

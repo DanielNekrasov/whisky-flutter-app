@@ -11,9 +11,13 @@ class HomeScreen extends StatelessWidget {
           icon: Icon(CupertinoIcons.home),
           title: Text('Home'),
         ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.book),
+          title: Text('Favorites'),
+        ),
       ]),
       tabBuilder: (context, index) {
-          return ListScreen();
+        return ListScreen();
       },
     );
   }
