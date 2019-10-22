@@ -1,6 +1,6 @@
-# whisky_flutter_app
+# whisky_app
 
-Whisky app guidebook
+Whisky guidbook app
 
 ## Getting Started
 

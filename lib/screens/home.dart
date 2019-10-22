@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:whisky_flutter_app/screens/list.dart';
+import 'package:whisky_app/screens/list.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

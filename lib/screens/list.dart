@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:whisky_flutter_app/data/app_state.dart';
-import 'package:whisky_flutter_app/data/whisky.dart';
-import 'package:whisky_flutter_app/widgets/whisky_card.dart';
+import 'package:whisky_app/data/app_state.dart';
+import 'package:whisky_app/data/whisky.dart';
+import 'package:whisky_app/widgets/whisky_card.dart';
 
 class ListScreen extends StatelessWidget {
   Widget _generateWhiskyRow(Whisky whisky) {

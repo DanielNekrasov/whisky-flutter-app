@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:whisky_flutter_app/data/local_whisky_provider.dart';
-import 'package:whisky_flutter_app/data/whisky.dart';
+import 'package:whisky_app/data/local_whisky_provider.dart';
+import 'package:whisky_app/data/whisky.dart';
 
 class AppState with ChangeNotifier {
   List<Whisky> _whiskies = LocalWhiskyProvider.whiskies;

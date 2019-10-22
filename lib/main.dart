@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:provider/provider.dart';
-import 'package:whisky_flutter_app/data/app_state.dart';
-import 'package:whisky_flutter_app/screens/home.dart';
-import 'package:whisky_flutter_app/styles.dart';
+import 'package:whisky_app/data/app_state.dart';
+import 'package:whisky_app/screens/home.dart';
+import 'package:whisky_app/styles.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations([

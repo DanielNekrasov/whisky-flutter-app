@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:whisky_flutter_app/data/whisky.dart';
-import 'package:whisky_flutter_app/styles.dart';
+import 'package:whisky_app/data/whisky.dart';
+import 'package:whisky_app/styles.dart';
 
 class FrostyBackground extends StatelessWidget {
   const FrostyBackground({

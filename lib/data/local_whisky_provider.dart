@@ -1,4 +1,4 @@
-import 'package:whisky_flutter_app/data/whisky.dart';
+import 'package:whisky_app/data/whisky.dart';
 
 class LocalWhiskyProvider {
   static List<Whisky> whiskies = [
