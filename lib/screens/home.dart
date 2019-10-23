@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:whisky_app/screens/list.dart';
+import 'package:whisky_app/screens/search.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -12,12 +13,16 @@ class HomeScreen extends StatelessWidget {
           title: Text('Home'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.book),
-          title: Text('Favorites'),
+          icon: Icon(CupertinoIcons.search),
+          title: Text('Search'),
         ),
       ]),
       tabBuilder: (context, index) {
-        return ListScreen();
+        if (index == 0) {
+          return ListScreen();
+        } else {
+          return SearchScreen();
+        }
       },
     );
   }

@@ -27,7 +27,7 @@ class WhiskiesState with ChangeNotifier {
 
   List<Whisky> get allWhiskies => List<Whisky>.from(_whiskies);
 
-  Whisky getWhisky(int id) => _whiskies[id];
+  Whisky getWhisky(int id) => _whiskies.singleWhere((w) => w.id == id);
 
   List<Whisky> get favoriteWhiskies =>
       _whiskies.where((w) => w.isFavorite).toList();

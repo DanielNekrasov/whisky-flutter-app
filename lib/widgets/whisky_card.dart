@@ -2,13 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whisky_app/screens/details.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
 
 class FrostyBackground extends StatelessWidget {
   const FrostyBackground({
     this.color,
-    this.intensity = 25,
+    this.intensity = 100,
     this.child,
   });
 
@@ -53,17 +54,11 @@ class PressableCard extends StatefulWidget {
         super(key: key);
 
   final VoidCallback onPressed;
-
   final Widget child;
-
   final BorderRadius borderRadius;
-
   final double upElevation;
-
   final double downElevation;
-
   final Color shadowColor;
-
   final Duration duration;
 
   @override
@@ -107,7 +102,7 @@ class WhiskyCard extends StatelessWidget {
 
   Widget _buildDetails() {
     return FrostyBackground(
-      color: Color(0x90ffffff),
+      color: Color(0x90FBAF00),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -132,7 +127,7 @@ class WhiskyCard extends StatelessWidget {
     return PressableCard(
       onPressed: () {
         Navigator.of(context).push<void>(CupertinoPageRoute(
-          builder: (context) => null,
+          builder: (context) => DetailsScreen(whisky.id),
           fullscreenDialog: true,
         ));
       },
@@ -144,9 +139,9 @@ class WhiskyCard extends StatelessWidget {
             child: FadeInImage.assetNetwork(
               fit: BoxFit.cover,
               placeholder: 'assets/images/whisky.jpg',
+              fadeInCurve: Curves.easeOutExpo,
               image: whisky.imagePath,
               height: 300.0,
-              repeat: ImageRepeat.repeatX,
             ),
           ),
           _buildDetails(),

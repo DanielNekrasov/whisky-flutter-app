@@ -25,11 +25,13 @@ class ListScreen extends StatelessWidget {
       builder: (context) {
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
-          child: ListView.builder(
-              itemCount: whiskiesState.allWhiskies.length,
-              itemBuilder: (context, index) {
-                return _generateWhiskyRow(whiskiesState.allWhiskies[index]);
-              }),
+          child: CupertinoScrollbar(
+            child: ListView.builder(
+                itemCount: whiskiesState.allWhiskies.length,
+                itemBuilder: (context, index) {
+                  return _generateWhiskyRow(whiskiesState.allWhiskies[index]);
+                }),
+          ),
         );
       },
     );
