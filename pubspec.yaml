@@ -36,3 +36,6 @@ flutter:
         - asset: assets/fonts/NotoSans-Italic.ttf
           style: italic
           weight: 400
+
+  assets:
+    - assets/images/whisky.jpg

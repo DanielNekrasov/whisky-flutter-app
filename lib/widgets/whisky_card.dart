@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
 
@@ -89,7 +90,7 @@ class _PressableCardState extends State<PressableCard> {
         shape: BoxShape.rectangle,
         shadowColor: widget.shadowColor,
         duration: widget.duration,
-        color: CupertinoColors.lightBackgroundGray,
+        color: CupertinoColors.white,
         child: ClipRRect(
           borderRadius: widget.borderRadius,
           child: widget.child,
@@ -117,7 +118,7 @@ class WhiskyCard extends StatelessWidget {
               style: Styles.cardTitleText,
             ),
             Text(
-              whisky.shortDescription,
+              whisky.description,
               style: Styles.cardDescriptionText,
             ),
           ],
@@ -135,26 +136,20 @@ class WhiskyCard extends StatelessWidget {
           fullscreenDialog: true,
         ));
       },
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Semantics(
             label: 'A card background featuring ${whisky.name}',
-            child: Container(
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(whisky.imagePath),
-                ),
-              ),
+            child: FadeInImage.assetNetwork(
+              fit: BoxFit.cover,
+              placeholder: 'assets/images/whisky.jpg',
+              image: whisky.imagePath,
+              height: 300.0,
+              repeat: ImageRepeat.repeatX,
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: _buildDetails(),
-          ),
+          _buildDetails(),
         ],
       ),
     );

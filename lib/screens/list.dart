@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:whisky_app/data/app_state.dart';
+import 'package:whisky_app/data/whiskies_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/widgets/whisky_card.dart';
 
@@ -13,7 +13,6 @@ class ListScreen extends StatelessWidget {
       child: FutureBuilder<Set<WhiskyCategory>>(
           future: null,
           builder: (context, snapshot) {
-            final data = snapshot.data ?? Set<WhiskyCategory>();
             return WhiskyCard(whisky);
           }),
     );
@@ -21,15 +20,15 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = Provider.of<AppState>(context);
+    var whiskiesState = Provider.of<WhiskiesState>(context);
     return CupertinoTabView(
       builder: (context) {
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
           child: ListView.builder(
-              itemCount: appState.allWhiskies.length,
+              itemCount: whiskiesState.allWhiskies.length,
               itemBuilder: (context, index) {
-                return _generateWhiskyRow(appState.allWhiskies[index]);
+                return _generateWhiskyRow(whiskiesState.allWhiskies[index]);
               }),
         );
       },

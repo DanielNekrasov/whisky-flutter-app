@@ -69,7 +69,7 @@ class Whisky {
     @required this.id,
     @required this.name,
     @required this.imagePath,
-    @required this.shortDescription,
+    @required this.description,
     @required this.region,
     @required this.category,
     @required this.fragrance,
@@ -84,17 +84,36 @@ class Whisky {
   final int id;
   final String name;
   final String imagePath;
-  final String shortDescription;
+  final String description;
   final String region;
-  final WhiskyCategory category;
-  final Flavour fragrance;
-  final Flavour taste;
-  final Flavour aftertaste;
+  final String category;
+  final String fragrance;
+  final String taste;
+  final String aftertaste;
   final int rating;
-  final double abv;
+  final String abv;
   final String note;
 
   bool isFavorite;
+
+  factory Whisky.fromJson(Map<String, dynamic> json) {
+    if (json == null) return null;
+
+    return Whisky(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      imagePath: json['imagePath'] as String,
+      description: json['description'] as String,
+      region: json['region'] as String,
+      category: json['category'] as String,
+      fragrance: json['fragrance'] as String,
+      taste: json['taste'] as String,
+      aftertaste: json['aftertaste'] as String,
+      rating: json['rating'] as int,
+      abv: json['abv'] as String,
+//      note: json['note'] as String,
+    );
+  }
 
   String get categoryName => whiskyCategoryNames[category];
   String get fragranceName => flavourNames[fragrance];
