@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:flutter/cupertino.dart';
 
 enum WhiskyCategory {
   blended,
@@ -9,6 +10,7 @@ enum WhiskyCategory {
   rye,
   single_malt,
   wheat,
+  unknown,
 }
 
 const Map<WhiskyCategory, String> whiskyCategoryNames = {
@@ -20,6 +22,18 @@ const Map<WhiskyCategory, String> whiskyCategoryNames = {
   WhiskyCategory.rye: 'Ржаной',
   WhiskyCategory.single_malt: 'Односолодовый',
   WhiskyCategory.wheat: 'Пшеничный',
+  WhiskyCategory.unknown: 'Неизвестный',
+};
+
+const Map<WhiskyCategory, Color> accentColors = {
+  WhiskyCategory.blended: Color(0xff8e88a0),
+  WhiskyCategory.bourbon: Color(0xffc59b35),
+  WhiskyCategory.corn: Color(0xffa76930),
+  WhiskyCategory.malt: Color(0xffa18b73),
+  WhiskyCategory.mixed_irish: Color(0xff417d41),
+  WhiskyCategory.rye: Color(0xffce6873),
+  WhiskyCategory.single_malt: Color(0xffa18b73),
+  WhiskyCategory.wheat: Color(0xffde8c66),
 };
 
 enum Flavour {
@@ -86,7 +100,7 @@ class Whisky {
   final String imagePath;
   final String description;
   final String region;
-  final String category;
+  final WhiskyCategory category;
   final String fragrance;
   final String taste;
   final String aftertaste;
@@ -105,13 +119,13 @@ class Whisky {
       imagePath: json['imagePath'] as String,
       description: json['description'] as String,
       region: json['region'] as String,
-      category: json['category'] as String,
+      category: whiskyCategoryNames.keys.firstWhere((k) => whiskyCategoryNames[k] == json['category'], orElse: () => WhiskyCategory.unknown),
       fragrance: json['fragrance'] as String,
       taste: json['taste'] as String,
       aftertaste: json['aftertaste'] as String,
       rating: json['rating'] as int,
       abv: json['abv'] as String,
-//      note: json['note'] as String,
+      note: json['note'],
     );
   }
 
@@ -119,4 +133,5 @@ class Whisky {
   String get fragranceName => flavourNames[fragrance];
   String get tasteName => flavourNames[taste];
   String get afterTasteName => aftertasteNames[aftertaste];
+  Color get accentColor => accentColors[category];
 }

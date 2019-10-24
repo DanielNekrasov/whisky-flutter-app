@@ -31,7 +31,7 @@ class InfoView extends StatelessWidget {
                 future: null,
                 builder: (context, snapshot) {
                   return Text(
-                    whisky.category.toUpperCase(),
+                    whisky.categoryName,
                     style: Styles.detailsCategoryText,
                   );
                 },

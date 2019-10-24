@@ -102,7 +102,7 @@ class WhiskyCard extends StatelessWidget {
 
   Widget _buildDetails() {
     return FrostyBackground(
-      color: Color(0x90FBAF00),
+      color: whisky.accentColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
