@@ -5,10 +5,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:whisky_app/widgets/close_button.dart';
-import 'package:whisky_app/data/whiskies_state.dart';
+import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
+import 'package:whisky_app/widgets/close_button.dart';
 
 class InfoView extends StatelessWidget {
   final int id;
@@ -16,7 +16,7 @@ class InfoView extends StatelessWidget {
   const InfoView(this.id);
 
   Widget build(BuildContext context) {
-    final appState = Provider.of<WhiskiesState>(context);
+    final appState = Provider.of<AppState>(context);
     final whisky = appState.getWhisky(id);
 
     return Padding(
@@ -60,7 +60,7 @@ class InfoView extends StatelessWidget {
                 },
               ),
               SizedBox(width: 8),
-              Text('Save to Favorites'),
+              Text('Сохранить в избранное'),
             ],
           ),
         ],
@@ -79,7 +79,7 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
-  Widget _buildHeader(BuildContext context, WhiskiesState model) {
+  Widget _buildHeader(BuildContext context, AppState model) {
     final whisky = model.getWhisky(widget.id);
     return Container(
       height: 170,
@@ -113,19 +113,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<WhiskiesState>(context);
+    final model = Provider.of<AppState>(context);
 
     return CupertinoPageScaffold(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildHeader(context, appState),
+          _buildHeader(context, model),
           Expanded(
             child: ListView(
-              children: [
-                InfoView(widget.id)
-              ],
+              children: [InfoView(widget.id)],
             ),
           ),
         ],

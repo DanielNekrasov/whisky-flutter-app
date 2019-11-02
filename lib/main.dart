@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show DeviceOrientation, SystemChrome;
 import 'package:provider/provider.dart';
-import 'package:whisky_app/data/whiskies_state.dart';
+import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/screens/home.dart';
 import 'package:whisky_app/styles.dart';
 
@@ -27,8 +27,8 @@ class _WhiskyAppState extends State<WhiskyApp> {
   }
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<WhiskiesState>(
-      builder: (context) => WhiskiesState(),
+    return ChangeNotifierProvider<AppState>(
+      builder: (context) => AppState(),
       child: CupertinoApp(
         debugShowCheckedModeBanner: false,
         color: Styles.appBackground,

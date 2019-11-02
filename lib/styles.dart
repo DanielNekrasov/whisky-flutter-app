@@ -45,7 +45,6 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-
   static const scaffoldBackground = Color(0xfff0f0f0);
   static const frostedBackground = Color(0xccf8f8f8);
   static const closeButtonUnpressed = Color(0xff101010);
@@ -78,5 +77,4 @@ abstract class Styles {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
-
 }

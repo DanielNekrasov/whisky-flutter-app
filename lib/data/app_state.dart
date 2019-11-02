@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:whisky_app/data/whisky.dart';
 
-class WhiskiesState with ChangeNotifier {
-  WhiskiesState() {
+class AppState with ChangeNotifier {
+  AppState() {
     _fetchData();
   }
 
