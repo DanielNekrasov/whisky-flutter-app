@@ -72,7 +72,7 @@ class WhiskyHeadline extends StatelessWidget {
         children: [
           ZoomClipAssetImage(
             imageAsset: whisky.imagePath,
-            zoom: 2.4,
+            zoom: 2,
             height: 72,
             width: 72,
           ),
@@ -83,6 +83,8 @@ class WhiskyHeadline extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Flexible(
                       child: Text(
@@ -100,7 +102,7 @@ class WhiskyHeadline extends StatelessWidget {
                 ),
                 Text(
                   whisky.categoryName,
-                  style: Styles.headlineDescription,
+                  style: Styles.headlineItalicDescription,
                 ),
                 Text(
                   whisky.region,

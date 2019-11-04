@@ -77,4 +77,14 @@ abstract class Styles {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
   );
+
+  static const headlineItalicDescription = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.8),
+    fontFamily: 'NotoSans',
+    fontSize: 16,
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const cardFooterBackground = Color(0xffe0e0e0);
 }

@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whisky_app/screens/details.dart';
 import 'package:whisky_app/data/whisky.dart';
+import 'package:whisky_app/screens/details.dart';
 import 'package:whisky_app/styles.dart';
 
 class FrostyBackground extends StatelessWidget {
@@ -102,7 +102,7 @@ class WhiskyCard extends StatelessWidget {
 
   Widget _buildDetails() {
     return FrostyBackground(
-      color: whisky.accentColor,
+      color: Styles.cardFooterBackground,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
