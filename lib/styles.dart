@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class Styles {
@@ -45,6 +46,38 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
+  static const detailsTableHeaderText = TextStyle(
+    color: Color.fromRGBO(176, 176, 176, 1),
+    fontFamily: 'NotoSans',
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsTableLabelText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const detailsTableValueText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
+
+  static const detailsTableNoteText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontFamily: 'NotoSans',
+    fontSize: 16,
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.normal,
+  );
+
   static const scaffoldBackground = Color(0xfff0f0f0);
   static const frostedBackground = Color(0xccf8f8f8);
   static const closeButtonUnpressed = Color(0xff101010);
@@ -87,4 +120,18 @@ abstract class Styles {
   );
 
   static const cardFooterBackground = Color(0xffe0e0e0);
+
+  static const starColor = Colors.amberAccent;
+
+  static const starBordered = IconData(
+    0xf4b2,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
+
+  static const star = IconData(
+    0xf4b3,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
 }

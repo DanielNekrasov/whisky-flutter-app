@@ -1,5 +1,5 @@
-import 'package:meta/meta.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:meta/meta.dart';
 
 enum WhiskyCategory {
   blended,
@@ -101,9 +101,9 @@ class Whisky {
   final String description;
   final String region;
   final WhiskyCategory category;
-  final String fragrance;
-  final String taste;
-  final String aftertaste;
+  final Flavour fragrance;
+  final Flavour taste;
+  final Flavour aftertaste;
   final int rating;
   final String abv;
   final String note;
@@ -119,10 +119,15 @@ class Whisky {
       imagePath: json['imagePath'] as String,
       description: json['description'] as String,
       region: json['region'] as String,
-      category: whiskyCategoryNames.keys.firstWhere((k) => whiskyCategoryNames[k] == json['category'], orElse: () => WhiskyCategory.unknown),
-      fragrance: json['fragrance'] as String,
-      taste: json['taste'] as String,
-      aftertaste: json['aftertaste'] as String,
+      category: whiskyCategoryNames.keys.firstWhere(
+          (k) => whiskyCategoryNames[k] == json['category'],
+          orElse: () => WhiskyCategory.unknown),
+      fragrance: flavourNames.keys
+          .firstWhere((k) => flavourNames[k] == json['fragrance']),
+      taste:
+          flavourNames.keys.firstWhere((k) => flavourNames[k] == json['taste']),
+      aftertaste: aftertasteNames.keys
+          .firstWhere((k) => aftertasteNames[k] == json['aftertaste']),
       rating: json['rating'] as int,
       abv: json['abv'] as String,
       note: json['note'],
