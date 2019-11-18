@@ -115,14 +115,33 @@ class InfoView extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CupertinoSwitch(
-                value: whisky.isFavorite,
-                onChanged: (value) {
-                  appState.setFavorite(id, value);
-                },
+              Expanded(
+                child: whisky.isFavorite
+                    ? CupertinoButton(
+                        color: Styles.buttonGrayColor,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text('В избранном'),
+                            SizedBox(width: 8),
+                            Icon(
+                              CupertinoIcons.check_mark_circled,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          appState.setFavorite(whisky.id, false);
+                        },
+                      )
+                    : CupertinoButton(
+                        color: Styles.buttonColor,
+                        child: Text('Сохранить в избранное'),
+                        onPressed: () {
+                          appState.setFavorite(whisky.id, true);
+                        },
+                      ),
               ),
-              SizedBox(width: 8),
-              Text('Сохранить в избранное'),
             ],
           ),
         ],
@@ -151,7 +170,7 @@ class DataTable extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 16.0),
                           child: Text(
-                            'Регион:',
+                            'Регион',
                             style: Styles.detailsTableLabelText,
                           ),
                         ),
@@ -169,7 +188,7 @@ class DataTable extends StatelessWidget {
                     children: [
                       TableCell(
                         child: Text(
-                          'Аромат:',
+                          'Аромат',
                           style: Styles.detailsTableLabelText,
                         ),
                       ),
@@ -186,7 +205,7 @@ class DataTable extends StatelessWidget {
                     children: [
                       TableCell(
                         child: Text(
-                          'Вкус:',
+                          'Вкус',
                           style: Styles.detailsTableLabelText,
                         ),
                       ),
@@ -203,7 +222,7 @@ class DataTable extends StatelessWidget {
                     children: [
                       TableCell(
                         child: Text(
-                          'Послевкусие:',
+                          'Послевкусие',
                           style: Styles.detailsTableLabelText,
                         ),
                       ),
@@ -220,7 +239,7 @@ class DataTable extends StatelessWidget {
                     children: [
                       TableCell(
                         child: Text(
-                          'Крепость:',
+                          'Крепость',
                           style: Styles.detailsTableLabelText,
                         ),
                       ),

@@ -27,7 +27,7 @@ class ZoomClipAssetImage extends StatelessWidget {
       width: width,
       alignment: Alignment.center,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(50),
         child: OverflowBox(
           maxHeight: height * zoom,
           maxWidth: width * zoom,

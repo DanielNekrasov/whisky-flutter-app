@@ -35,7 +35,7 @@ class _ListScreenState extends State<ListScreen> {
 
   Widget _createSearchBox() {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       child: SearchBar(
         controller: controller,
         focusNode: focusNode,
@@ -49,12 +49,13 @@ class _ListScreenState extends State<ListScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
-            'Нет ничего даже похожего...',
+            'Нет ничего с таким названием',
             style: Styles.headlineDescription,
           ),
         ),
       );
     }
+    print(whiskies.length);
 
     return ListView.builder(
       itemCount: whiskies.length,
@@ -85,7 +86,7 @@ class _ListScreenState extends State<ListScreen> {
                 Expanded(
                   child: CupertinoScrollbar(
                     child: _buildSearchResults(
-                      model.searchVeggies(terms),
+                      model.searchWhiskies(terms),
                     ),
                   ),
                 ),

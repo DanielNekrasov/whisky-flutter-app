@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
+
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:whisky_app/data/whisky.dart';
 
 class AppState with ChangeNotifier {
@@ -15,10 +16,10 @@ class AppState with ChangeNotifier {
     var whiskies = databaseReference.child('whiskies');
     whiskies.once().then((DataSnapshot snapshot) {
       var whiskiesList = snapshot.value.toList();
-      for(var whisky in whiskiesList){
-        var jsonString = json.encode(whisky);
-        Whisky foo = Whisky.fromJson(json.decode(jsonString));
-        _whiskies.add(foo);
+      for (var whiskyItem in whiskiesList) {
+        var jsonString = json.encode(whiskyItem);
+        Whisky whisky = Whisky.fromJson(json.decode(jsonString));
+        _whiskies.add(whisky);
       }
 
       notifyListeners();
@@ -32,7 +33,7 @@ class AppState with ChangeNotifier {
   List<Whisky> get favoriteWhiskies =>
       _whiskies.where((w) => w.isFavorite).toList();
 
-  List<Whisky> searchVeggies(String terms) => _whiskies
+  List<Whisky> searchWhiskies(String terms) => _whiskies
       .where((w) => w.name.toLowerCase().contains(terms.toLowerCase()))
       .toList();
 

@@ -7,7 +7,6 @@ abstract class Styles {
 
   static const cardTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 26,
     height: 1,
     fontStyle: FontStyle.normal,
@@ -16,7 +15,6 @@ abstract class Styles {
 
   static const cardDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -24,7 +22,6 @@ abstract class Styles {
 
   static const detailsTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 30,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
@@ -32,7 +29,6 @@ abstract class Styles {
 
   static const detailsDescriptionText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -40,7 +36,6 @@ abstract class Styles {
 
   static const detailsCategoryText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.7),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -48,7 +43,6 @@ abstract class Styles {
 
   static const detailsTableHeaderText = TextStyle(
     color: Color.fromRGBO(176, 176, 176, 1),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
@@ -56,7 +50,6 @@ abstract class Styles {
 
   static const detailsTableLabelText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
@@ -64,7 +57,6 @@ abstract class Styles {
 
   static const detailsTableValueText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -72,7 +64,6 @@ abstract class Styles {
 
   static const detailsTableNoteText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
@@ -87,7 +78,6 @@ abstract class Styles {
   static const Color searchIconColor = Color.fromRGBO(128, 128, 128, 1);
   static const TextStyle searchText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 1),
-    fontFamily: 'NotoSans',
     fontSize: 14,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -97,7 +87,6 @@ abstract class Styles {
 
   static const headlineName = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
-    fontFamily: 'NotoSans',
     fontSize: 20,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
@@ -105,7 +94,6 @@ abstract class Styles {
 
   static const headlineDescription = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -113,7 +101,6 @@ abstract class Styles {
 
   static const headlineItalicDescription = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.8),
-    fontFamily: 'NotoSans',
     fontSize: 16,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.normal,
@@ -121,7 +108,7 @@ abstract class Styles {
 
   static const cardFooterBackground = Color(0xffe0e0e0);
 
-  static const starColor = Colors.amberAccent;
+  static const starColor = Color(0xff000000);
 
   static const starBordered = IconData(
     0xf4b2,
@@ -134,4 +121,7 @@ abstract class Styles {
     fontFamily: CupertinoIcons.iconFont,
     fontPackage: CupertinoIcons.iconFontPackage,
   );
+
+  static const buttonColor = Color.fromARGB(255, 0, 122, 255);
+  static const buttonGrayColor = Color(0xff808080);
 }

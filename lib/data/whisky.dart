@@ -48,6 +48,7 @@ enum Flavour {
   vegetable,
   wine,
   woody,
+  unknown
 }
 
 const Map<Flavour, String> flavourNames = {
@@ -62,6 +63,7 @@ const Map<Flavour, String> flavourNames = {
   Flavour.vegetable: 'Растительный',
   Flavour.wine: 'Винный',
   Flavour.woody: 'Древесный',
+  Flavour.unknown: '',
 };
 
 const Map<Flavour, String> aftertasteNames = {
@@ -76,6 +78,7 @@ const Map<Flavour, String> aftertasteNames = {
   Flavour.vegetable: 'Растительное',
   Flavour.wine: 'Винное',
   Flavour.woody: 'Древесное',
+  Flavour.unknown: '',
 };
 
 class Whisky {
@@ -122,12 +125,17 @@ class Whisky {
       category: whiskyCategoryNames.keys.firstWhere(
           (k) => whiskyCategoryNames[k] == json['category'],
           orElse: () => WhiskyCategory.unknown),
-      fragrance: flavourNames.keys
-          .firstWhere((k) => flavourNames[k] == json['fragrance']),
-      taste:
-          flavourNames.keys.firstWhere((k) => flavourNames[k] == json['taste']),
-      aftertaste: aftertasteNames.keys
-          .firstWhere((k) => aftertasteNames[k] == json['aftertaste']),
+      fragrance: flavourNames.keys.firstWhere(
+          (k) => flavourNames[k] == json['fragrance'],
+          orElse: () => Flavour.unknown),
+      taste: flavourNames.keys.firstWhere(
+        (k) => flavourNames[k] == json['taste'],
+        orElse: () => Flavour.unknown,
+      ),
+      aftertaste: aftertasteNames.keys.firstWhere(
+        (k) => aftertasteNames[k] == json['aftertaste'],
+        orElse: () => Flavour.unknown,
+      ),
       rating: json['rating'] as int,
       abv: json['abv'] as String,
       note: json['note'],
