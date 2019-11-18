@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
-import 'package:whisky_app/widgets/whisky_card.dart';
+import 'package:whisky_app/widgets/whisky_headline.dart';
 
 class FavoritesScreen extends StatelessWidget {
   Widget _generateWhiskyRow(Whisky whisky) {
@@ -17,7 +17,7 @@ class FavoritesScreen extends StatelessWidget {
       child: FutureBuilder<Set<WhiskyCategory>>(
           future: null,
           builder: (context, snapshot) {
-            return WhiskyCard(whisky);
+            return WhiskyHeadline(whisky);
           }),
     );
   }
@@ -32,21 +32,22 @@ class FavoritesScreen extends StatelessWidget {
           navigationBar: CupertinoNavigationBar(
             middle: Text('Избранное'),
           ),
-          child: Center(
-            child: model.favoriteWhiskies.isEmpty
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Text(
-                      'Список пуст.',
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Center(
+              child: model.favoriteWhiskies.isEmpty
+                  ? Text(
+                      'Список пуст',
                       style: Styles.headlineDescription,
+                    )
+                  : ListView.builder(
+                      itemCount: model.favoriteWhiskies.length,
+                      itemBuilder: (context, index) {
+                        return _generateWhiskyRow(
+                            model.favoriteWhiskies[index]);
+                      },
                     ),
-                  )
-                : ListView.builder(
-                    itemCount: model.favoriteWhiskies.length,
-                    itemBuilder: (context, index) {
-                      return _generateWhiskyRow(model.favoriteWhiskies[index]);
-                    },
-                ),
+            ),
           ),
         );
       },

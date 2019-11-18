@@ -5,7 +5,7 @@ import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
 import 'package:whisky_app/widgets/search_bar.dart';
-import 'package:whisky_app/widgets/whisky_headline.dart';
+import 'package:whisky_app/widgets/whisky_card.dart';
 
 class ListScreen extends StatefulWidget {
   @override
@@ -62,7 +62,7 @@ class _ListScreenState extends State<ListScreen> {
       itemBuilder: (context, i) {
         return Padding(
           padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-          child: WhiskyHeadline(whiskies[i]),
+          child: WhiskyCard(whiskies[i]),
         );
       },
     );

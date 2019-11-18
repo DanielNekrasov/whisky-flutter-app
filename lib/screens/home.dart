@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:whisky_app/screens/favorites.dart';
 import 'package:whisky_app/screens/list.dart';
+import 'package:whisky_app/screens/settings.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -22,6 +23,11 @@ class HomeScreen extends StatelessWidget {
             'Избранное',
           ),
         ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.info),
+          activeIcon: Icon(CupertinoIcons.info),
+          title: Text('Инфо'),
+        ),
       ]),
       tabBuilder: (context, index) {
         Widget screen;
@@ -31,6 +37,9 @@ class HomeScreen extends StatelessWidget {
             break;
           case 1:
             screen = FavoritesScreen();
+            break;
+          case 2:
+            screen = SettingScreen();
             break;
         }
         return screen;

@@ -93,7 +93,7 @@ abstract class Styles {
   );
 
   static const headlineDescription = TextStyle(
-    color: Color.fromRGBO(0, 0, 0, 0.8),
+    color: Color.fromRGBO(1, 46, 43, 0.5),
     fontSize: 16,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.normal,
@@ -124,4 +124,22 @@ abstract class Styles {
 
   static const buttonColor = Color.fromARGB(255, 0, 122, 255);
   static const buttonGrayColor = Color(0xff808080);
+
+  static const transparentColor = Color(0x00000000);
+
+  static const Color settingsMediumGray = Color(0xffc7c7c7);
+
+  static const Color settingsItemPressed = Color(0xffd9d9d9);
+
+  static const Color settingsLineation = Color(0xffbcbbc1);
+
+  static const Color settingsBackground = Color(0xffefeff4);
+
+  static const Color settingsGroupSubtitle = Color(0xff777777);
+
+  static const infoIcon = IconData(
+    0xf445,
+    fontFamily: CupertinoIcons.iconFont,
+    fontPackage: CupertinoIcons.iconFontPackage,
+  );
 }

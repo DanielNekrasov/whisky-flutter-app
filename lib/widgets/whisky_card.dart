@@ -113,7 +113,11 @@ class WhiskyCard extends StatelessWidget {
               style: Styles.cardTitleText,
             ),
             Text(
-              whisky.description,
+              whisky.categoryName,
+              style: Styles.headlineItalicDescription,
+            ),
+            Text(
+              whisky.region,
               style: Styles.cardDescriptionText,
             ),
           ],
@@ -141,7 +145,7 @@ class WhiskyCard extends StatelessWidget {
               placeholder: 'assets/images/whisky.jpg',
               fadeInCurve: Curves.easeOutExpo,
               image: whisky.imagePath,
-              height: 300.0,
+              height: 200.0,
             ),
           ),
           _buildDetails(),
