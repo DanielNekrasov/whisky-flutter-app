@@ -87,7 +87,7 @@ class AboutScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         previousPageTitle: 'Назад',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.appBackground,
       child: ListView(
         children: [
           Image.asset(
@@ -152,7 +152,7 @@ class RatingSystemScreen extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         previousPageTitle: 'Назад',
       ),
-      backgroundColor: Styles.scaffoldBackground,
+      backgroundColor: Styles.appBackground,
       child: ListView(
         children: [
           Padding(
