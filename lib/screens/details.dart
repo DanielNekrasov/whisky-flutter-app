@@ -84,7 +84,7 @@ class InfoView extends StatelessWidget {
     final whisky = appState.getWhisky(id);
 
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -254,13 +254,15 @@ class DataTable extends StatelessWidget {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text(
-                  whisky.note,
-                  style: Styles.detailsTableNoteText,
-                ),
-              ),
+              whisky.note != ''
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Text(
+                        whisky.note,
+                        style: Styles.detailsTableNoteText,
+                      ),
+                    )
+                  : Container(),
             ],
           ),
         )
