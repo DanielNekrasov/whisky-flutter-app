@@ -128,7 +128,7 @@ abstract class Styles {
     fontPackage: CupertinoIcons.iconFontPackage,
   );
 
-  static const buttonColor = Color.fromARGB(255, 0, 122, 255);
+  static const buttonColor = Color(0xff000000);
   static const buttonGrayColor = Color(0xff808080);
 
   static const transparentColor = Color(0x00000000);

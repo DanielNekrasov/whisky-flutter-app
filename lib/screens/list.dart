@@ -5,7 +5,7 @@ import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
 import 'package:whisky_app/widgets/search_bar.dart';
-import 'package:whisky_app/widgets/whisky_card.dart';
+import 'package:whisky_app/widgets/whisky_headline.dart';
 
 class ListScreen extends StatefulWidget {
   @override
@@ -44,6 +44,17 @@ class _ListScreenState extends State<ListScreen> {
   }
 
   Widget _buildSearchResults(List<Whisky> whiskies) {
+    Widget _generateWhiskyRow(Whisky whisky) {
+      return Padding(
+        padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+        child: FutureBuilder<Set<WhiskyCategory>>(
+            future: null,
+            builder: (context, snapshot) {
+              return WhiskyHeadline(whisky);
+            }),
+      );
+    }
+
     if (whiskies.isEmpty) {
       return Center(
         child: Padding(
@@ -59,11 +70,8 @@ class _ListScreenState extends State<ListScreen> {
 
     return ListView.builder(
       itemCount: whiskies.length,
-      itemBuilder: (context, i) {
-        return Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-          child: WhiskyCard(whiskies[i]),
-        );
+      itemBuilder: (context, index) {
+        return _generateWhiskyRow(whiskies[index]);
       },
     );
   }
