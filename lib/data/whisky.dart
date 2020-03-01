@@ -138,7 +138,7 @@ class Whisky {
       ),
       rating: json['rating'] as int,
       abv: json['abv'] as String,
-      note: json['note'],
+      note: json['note'] as String,
     );
   }
 

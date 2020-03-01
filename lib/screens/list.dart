@@ -66,7 +66,6 @@ class _ListScreenState extends State<ListScreen> {
         ),
       );
     }
-    print(whiskies.length);
 
     return ListView.builder(
       itemCount: whiskies.length,
