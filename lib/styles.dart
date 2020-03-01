@@ -4,6 +4,10 @@ import 'package:flutter/widgets.dart';
 
 abstract class Styles {
   static const appBackground = Color(0xffd0d0d0);
+  static const scaffoldBackground = Color(0xfff0f0f0);
+  static const frostedBackground = Color(0xccf8f8f8);
+  static const closeButtonUnpressed = Color(0xff101010);
+  static const closeButtonPressed = Color(0xff808080);
 
   static const cardTitleText = TextStyle(
     color: Color.fromRGBO(0, 0, 0, 0.9),
@@ -69,10 +73,12 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
   );
 
-  static const scaffoldBackground = Color(0xfff0f0f0);
-  static const frostedBackground = Color(0xccf8f8f8);
-  static const closeButtonUnpressed = Color(0xff101010);
-  static const closeButtonPressed = Color(0xff808080);
+  static const paragraphText = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.9),
+    fontSize: 16,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.normal,
+  );
 
   static const searchBackground = Color(0xffe0e0e0);
   static const Color searchIconColor = Color.fromRGBO(128, 128, 128, 1);
