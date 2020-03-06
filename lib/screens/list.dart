@@ -43,7 +43,7 @@ class _ListScreenState extends State<ListScreen> {
     );
   }
 
-  Widget _buildSearchResults(List<Whisky> whiskies) {
+  Widget _buildSearchResults(List<Whisky> whiskies, String terms) {
     Widget _generateWhiskyRow(Whisky whisky) {
       return Padding(
         padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
@@ -56,6 +56,18 @@ class _ListScreenState extends State<ListScreen> {
     }
 
     if (whiskies.isEmpty) {
+      if (terms == '') {
+        return Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Text(
+              'Загрузка...',
+              style: Styles.headlineDescription,
+            ),
+          ),
+        );
+      }
+
       return Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -92,9 +104,8 @@ class _ListScreenState extends State<ListScreen> {
                 _createSearchBox(),
                 Expanded(
                   child: CupertinoScrollbar(
-                    child: _buildSearchResults(
-                      model.searchWhiskies(terms),
-                    ),
+                    child:
+                        _buildSearchResults(model.searchWhiskies(terms), terms),
                   ),
                 ),
               ],

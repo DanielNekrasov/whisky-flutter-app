@@ -31,9 +31,9 @@ class _WhiskyAppState extends State<WhiskyApp> {
   Widget build(BuildContext context) {
     print(DefaultTextStyle.of(context));
     return ChangeNotifierProvider<AppState>(
-      builder: (context) => AppState(),
+      create: (context) => AppState(),
       child: CupertinoApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         color: Styles.appBackground,
         home: HomeScreen(),
       ),

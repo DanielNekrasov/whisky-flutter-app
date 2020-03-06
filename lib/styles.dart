@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 abstract class Styles {
   static const appBackground = Color(0xffffffff);
-  static const scaffoldBackground = Color(0xfff0f0f0);
+  static const scaffoldBackground = Color(0xffffffff);
   static const frostedBackground = Color(0xccf8f8f8);
   static const closeButtonUnpressed = Color(0xff101010);
   static const closeButtonPressed = Color(0xff808080);
