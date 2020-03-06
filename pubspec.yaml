@@ -27,3 +27,4 @@ flutter:
   assets:
     - assets/images/whisky.jpg
     - assets/images/book.jpg
+    - assets/images/loader.png

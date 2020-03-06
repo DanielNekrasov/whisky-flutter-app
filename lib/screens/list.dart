@@ -1,3 +1,4 @@
+import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -12,20 +13,32 @@ class ListScreen extends StatefulWidget {
   _ListScreenState createState() => _ListScreenState();
 }
 
-class _ListScreenState extends State<ListScreen> {
+class _ListScreenState extends State<ListScreen>
+    with SingleTickerProviderStateMixin {
   final controller = TextEditingController();
   final focusNode = FocusNode();
+
+  Animation<double> animation;
+  AnimationController animationController;
+
   String terms = '';
 
   @override
   void initState() {
     super.initState();
     controller.addListener(_onTextChanged);
+
+    animationController =
+        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeInBack);
+    animationController.forward();
   }
 
   @override
   void dispose() {
     focusNode.dispose();
+    animationController.dispose();
     super.dispose();
   }
 
@@ -59,10 +72,14 @@ class _ListScreenState extends State<ListScreen> {
       if (terms == '') {
         return Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text(
-              'Загрузка...',
-              style: Styles.headlineDescription,
+            padding: const EdgeInsets.only(bottom: 80),
+            child: RotationTransition(
+              turns: animation,
+              alignment: Alignment.center,
+              child: Image(
+                image: AssetImage('assets/images/loader.png'),
+                width: 40,
+              ),
             ),
           ),
         );
