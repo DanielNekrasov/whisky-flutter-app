@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:whisky_app/data/app_state.dart';
 import 'package:whisky_app/data/whisky.dart';
 import 'package:whisky_app/styles.dart';
+import 'package:whisky_app/widgets/animated_logo.dart';
 import 'package:whisky_app/widgets/search_bar.dart';
 import 'package:whisky_app/widgets/whisky_headline.dart';
 
@@ -29,9 +30,16 @@ class _ListScreenState extends State<ListScreen>
     controller.addListener(_onTextChanged);
 
     animationController =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
     animation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeInBack);
+        CurvedAnimation(parent: animationController, curve: Curves.easeInBack)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              animationController.reverse();
+            } else if (status == AnimationStatus.dismissed) {
+              animationController.forward();
+            }
+          });
     animationController.forward();
   }
 
@@ -73,14 +81,7 @@ class _ListScreenState extends State<ListScreen>
         return Center(
           child: Padding(
             padding: const EdgeInsets.only(bottom: 80),
-            child: RotationTransition(
-              turns: animation,
-              alignment: Alignment.center,
-              child: Image(
-                image: AssetImage('assets/images/loader.png'),
-                width: 40,
-              ),
-            ),
+            child: AnimatedLogo(animation: animation),
           ),
         );
       }
